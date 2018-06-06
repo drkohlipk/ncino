@@ -1,0 +1,353 @@
+$btn-color: #b90000;
+$ocean: #004eb9;
+$opaque-white: #ffffff50;
+$opaque-black: #00000050;
+$sky-begin: #05a3dd;
+$sky-end: #80dcff;
+$sky-middle: #5dc3e7;
+$sun-inner: #ffbb00;
+$sun-outer: #ffe600;
+$wave-sky-begin: #7ad8fa;
+$wave-sky-end: #7edafb;
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100vw;
+
+	& main {
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transition: opacity 1s, visibility 1s;
+		width: 100%;
+	
+		& #btn {
+			background: url(./assets/striped.jpg) center no-repeat;
+			background-size: cover;
+			border: 3px solid black;
+			color: white;
+			font-size: 1.7rem;
+			font-weight: 900;
+			height: 6vh;
+			margin-left: 50%;
+			margin-top: 5vh;
+			-webkit-text-stroke: 1.5px black;
+			transform: translateX(-50%);
+			width: 15vw;
+
+			&:after {
+				background-color: $opaque-white;
+				content: "";
+				height: 6vh;
+				left: -3px;
+				opacity: 0;
+				position: absolute;
+				top: -3px;
+				-webkit-transition: all .2s;
+				transition: all .2s;
+				width: 15vw;
+			}
+
+			&:hover:after {
+				opacity: 1;
+			}
+
+			&:active:after {
+				background-color: $opaque-black;
+				box-shadow: 2px 2px 5px darkslategray;
+				opacity: 1;
+			}
+		}
+
+		& #sun {
+			background: radial-gradient($sun-inner, $sun-outer);
+			border-radius: 100%;
+			height: 20vh;
+			left: 75vw;
+			position: relative;
+			width: 11.5vw;
+		}
+	}
+
+	& main#carrier {
+		opacity: 1;
+		visibility: visible;
+
+		header {
+			background: linear-gradient($sky-begin, $sky-end);
+			height: 70vh;
+			width: 100%;
+	
+			& .cloud {
+				background-color: white;
+				height: 10vh;
+				left: 15vw;
+				position: relative;
+				top: 20vh;
+				width: 5vw;
+	
+				&-circle {
+					background-color: white;
+					border-radius: 100%;
+					height: 100px;
+					position: absolute;
+					width: 100px;
+				}
+	
+				& #cloud1 {
+					left: -5vw;
+				}
+	
+				& #cloud2 {
+					left: -1vw;
+					top: -7vh;
+				}
+				
+				& #cloud3 {
+					left: 1vw;
+					top: 2vh;
+				}
+	
+				& #cloud4 {
+					left: 5vw;
+					top: -6vh;
+				}
+	
+				& #cloud5 {
+					left: 7vw;
+					top: 1vh;
+				}
+			}
+		}
+	
+		footer {
+			background-color: $ocean;
+			height: 30vh;
+			width: 100%;
+	
+			& article {
+				display: inline;
+				position: relative;
+				top: -40vh;
+				left: 30vw;
+	
+				& #carrier {
+					height: auto;
+					width: 60vw;
+				}
+	
+				& #jet {
+					-webkit-animation: 1.5s ease-in 1 takeoff paused;
+					animation: 1.5s ease-in 1 takeoff paused;
+					height: auto;
+					right: 45vw;
+					position: relative;
+					top: -17vh;
+					transform: rotate(-4deg);
+					width: 20vw;
+	
+					@-webkit-keyframes takeoff {
+						0% {
+							right: 45vw;
+							top: -17vh;
+						}
+	
+						35% {
+							top: -17vh;
+						}
+	
+						100% {
+							right: 120vw;
+							top: -45vh;
+						}
+					}
+	
+					@keyframes takeoff {
+						0% {
+							right: 45vw;
+							top: -17vh;
+						}
+	
+						35% {
+							top: -17vh;
+						}
+	
+						100% {
+							right: 120vw;
+							top: -45vh;
+						}
+					}
+				}
+			}
+	
+			& section {
+				display: flex;
+				justify-content: space-evenly;
+				position: relative;
+				top: -6vh;
+				width: 100%;
+	
+				& .wave {
+					background: linear-gradient($wave-sky-begin 15%, $wave-sky-end 30%);
+					border-radius: 100%;
+					height: 12vh;
+					width: 10%;
+				}
+			}
+		}
+	}
+
+	& main#banditLeft10OClock5High {
+		opacity: 0;
+		visibility: hidden;
+		
+		header {
+			background: linear-gradient($sky-begin, $sky-end);
+			height: 100vh;
+			width: 100%;
+
+			& .bandit {
+				height: auto;
+				left: 5vw;
+				position: absolute;
+				top: 5vh;
+				transform: rotate(200deg);
+				width: 5vw;
+			}
+
+			& #bandit2 {
+				left: 10vw;
+			}
+
+			& #explosion {
+				height: auto;
+				left: 3vw;
+				position: absolute;
+				opacity: 0;
+				top: 3vh;
+				visibility: hidden;
+				width: 15vw;
+			}
+
+			& #friendly {
+				height: auto;
+				left: 67vw;
+				position: absolute;
+				top: 60vh;
+				transform: rotate3d(.5, 1, .7, 45deg);
+				width: 30vw;
+				z-index: 99;
+			}
+
+			& #missile {
+				-webkit-animation: 1.5s ease-in 1 launch paused;
+				animation: 1.5s ease-in 1 launch paused;
+				height: 15vh;
+				left: 82vw;
+				position: absolute;
+				top: 70vh;
+				transform: rotate(-60deg);
+				width: auto;
+				z-index: 9;
+	
+				@-webkit-keyframes launch {
+					from {
+						left: 82vw;
+						top: 70vh;
+					}
+
+					to {
+						left: 10vw;
+						top: 10vh;
+					}
+				}
+
+				@keyframes launch {
+					from {
+						left: 82vw;
+						top: 70vh;
+					}
+
+					to {
+						left: 10vw;
+						top: 5vh;
+					}
+				}
+			}
+
+			& #parachute {
+				-webkit-animation: 5s ease-in 1 parachuteFloat paused;
+				animation: 5s ease-in 1 parachuteFloat paused;
+				height: 15vh;
+				left: 7vw;
+				opacity: 0;
+				position: absolute;
+				top: 5vh;
+				transition: opacity 1s, visibility 1s;
+				visibility: hidden;
+				width: auto;
+	
+				@-webkit-keyframes parachuteFloat {
+					0% {
+						left: 7vw;
+						top: 5vh;
+					}
+
+					25% {
+						top: 25vh;
+						transform: rotate(10deg);
+					}
+
+					50% {
+						top: 50vh;
+						transform: rotate(-10deg);
+					}
+
+					75% {
+						top: 75vh;
+						transform: rotate(10deg);
+					}
+
+					100% {
+						top: 100vh;
+						transform: rotate(-10deg);
+					}
+				}
+
+				@keyframes parachuteFloat {
+					0% {
+						left: 7vw;
+						top: 5vh;
+					}
+
+					25% {
+						top: 25vh;
+						transform: rotate(10deg);
+					}
+
+					50% {
+						top: 50vh;
+						transform: rotate(-10deg);
+					}
+
+					75% {
+						top: 75vh;
+						transform: rotate(10deg);
+					}
+
+					100% {
+						top: 100vh;
+						transform: rotate(-10deg);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "dsign-skillz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "watch": {
+    "compileSCSS": {
+      "extensions": "scss",
+      "patterns": [
+        "*"
+      ]
+    }
+  },
+  "scripts": {
+    "compileSCSS": "sass ./_main.scss ./main.css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^6.1.0",
+    "npm-watch": "^0.3.0"
+  }
+}
