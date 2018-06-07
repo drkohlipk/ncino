@@ -1,3 +1,7 @@
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables
+ * https://sass-lang.com/guide
+ * https://htmlcolorcodes.com/tutorials/scss-color-variables/
+ */
 $btn-color: #b90000;
 $ocean: #004eb9;
 $opaque-white: #ffffff50;
@@ -10,119 +14,151 @@ $sun-outer: #ffe600;
 $wave-sky-begin: #7ad8fa;
 $wave-sky-end: #7edafb;
 
+/* TODO: Delete This
+ * https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3
+ * https://css-tricks.com/snippets/css/complete-guide-grid/
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+ */
+* {
+	border-radius: 0% !important;
+	height: 20vw !important;
+	left: 0 !important;
+	position: absolute !important;
+	top: 0 !important;
+	width: 20vw !important;
+}
+
+html {
+	font-size: 14px;
+}
+
 body {
-	height: 100vh;
+	/* https://www.w3schools.com/cssref/css_units.asp */
+	// height: ;
 	margin: 0;
-	overflow: hidden;
+	/* https://www.w3schools.com/CSSref/pr_pos_overflow.asp */
+	// overflow: ;
 	padding: 0;
-	width: 100vw;
+	width: 100%;
 
 	& main {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
+		/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+		// display: ;
+		// -direction: ;
+		// height: ;
 		left: 0;
 		position: absolute;
 		top: 0;
+		/* https://www.w3schools.com/css/css3_transitions.asp */
 		transition: opacity 1s, visibility 1s;
-		width: 100%;
+		// width: ;
 	
 		& #btn {
 			background: url(./assets/striped.jpg) center no-repeat;
-			background-size: cover;
 			border: 3px solid black;
 			color: white;
+			/* What are some other options?
+			 * https://css-tricks.com/rems-ems/
+			 */
 			font-size: 1.7rem;
 			font-weight: 900;
 			height: 6vh;
-			margin-left: 50%;
+			// margin-left: ;
 			margin-top: 5vh;
+			/* https://css-tricks.com/adding-stroke-to-web-text/ */
 			-webkit-text-stroke: 1.5px black;
-			transform: translateX(-50%);
+			// transform: ;
 			width: 15vw;
 
+			/* https://www.w3schools.com/css/css_pseudo_classes.asp */
 			&:after {
 				background-color: $opaque-white;
-				content: "";
-				height: 6vh;
-				left: -3px;
-				opacity: 0;
+				// content: ;
+				// height: ;
+				// left: ;
+				// opacity: ;
 				position: absolute;
-				top: -3px;
+				// top: ;
 				transition: all .2s;
-				width: 15vw;
+				// width: ;
 			}
 
 			&:hover:after {
-				opacity: 1;
+				// opacity: ;
 			}
 
-			&:active:after {
+			&:active {
 				background-color: $opaque-black;
+				/* https://www.w3schools.com/cssref/css3_pr_box-shadow.asp */
 				box-shadow: 2px 2px 5px darkslategray;
 				opacity: 1;
 			}
 		}
 
 		& #sun {
-			background: radial-gradient($sun-inner, $sun-outer);
-			border-radius: 100%;
-			height: 10vw;
+			/* https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient */
+			// background: ;
+			background-color: $sun-outer;
+			// border-radius: ;
+			height: 11.5vw;
 			left: 75vw;
 			position: relative;
-			width: 10vw;
+			width: 11.5vw;
 		}
 	}
 
 	& main#carrier {
-		opacity: 1;
-		visibility: visible;
+		/* https://stackoverflow.com/questions/3331353/transitions-on-the-display-property */
+		// opacity: ;
+		// visibility: ;
 
 		header {
-			background: linear-gradient($sky-begin, $sky-end);
+			/* https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient */
+			// background: ;
+			background-color: $sky-begin;
 			height: 70vh;
 			width: 100%;
 	
 			& .cloud {
 				background-color: white;
 				height: 10vh;
-				left: 15vw;
-				position: relative;
-				top: 20vh;
+				// left: ;
+				/* https://www.w3schools.com/Css/css_positioning.asp */
+				// position: ;
+				// top: ;
 				width: 5vw;
 	
 				&-circle {
 					background-color: white;
 					border-radius: 100%;
 					height: 100px;
-					position: absolute;
+					// position: ;
 					width: 100px;
 				}
 	
-				& #cloud1 {
-					left: -4vw;
-					top: 1vh;
-				}
+				// & #cloud1 {
+				// 	left: -5vw;
+				// }
 	
-				& #cloud2 {
-					left: -1.5vw;
-					top: -7vh;
-				}
+				// & #cloud2 {
+				// 	left: -1vw;
+				// 	top: -7vh;
+				// }
 				
-				& #cloud3 {
-					left: 0;
-					top: 2vh;
-				}
+				// & #cloud3 {
+				// 	left: 1vw;
+				// 	top: 2vh;
+				// }
 	
-				& #cloud4 {
-					left: 2vw;
-					top: -6vh;
-				}
+				// & #cloud4 {
+				// 	left: 5vw;
+				// 	top: -6vh;
+				// }
 	
-				& #cloud5 {
-					left: 4vw;
-					top: 1vh;
-				}
+				// & #cloud5 {
+				// 	left: 7vw;
+				// 	top: 1vh;
+				// }
 			}
 		}
 	
@@ -138,57 +174,55 @@ body {
 				left: 30vw;
 	
 				& #carrier {
-					height: auto;
-					width: 60vw;
+					/* https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+					 * https://www.w3schools.com/howto/howto_css_image_responsive.asp
+					 * https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_and_CSS
+					 * https://css-tricks.com/animating-svg-css/
+					 */
+					// height: ;
+					// width: ;
 				}
 	
 				& #jet {
-					-webkit-animation: 1.5s ease-in 1 takeoff paused;
-					animation: 1.5s ease-in 1 takeoff paused;
+					/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+					 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Detecting_CSS_animation_support
+					 * https://easings.net/
+					 */
+					// -webkit-animation: ;
+					// animation: ;
 					height: auto;
 					right: 45vw;
 					position: relative;
 					top: -17vh;
-					transform: rotate(-4deg);
+					/* https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate */
+					// transform: ;
 					width: 20vw;
 	
+					/* https://www.w3schools.com/CSSref/css3_pr_animation-keyframes.asp */
 					@-webkit-keyframes takeoff {
 						0% {
-							right: 45vw;
-							top: -17vh;
+							// right: ;
+							// top: ;
 						}
 	
 						35% {
-							top: -17vh;
+							// top: ;
 						}
 	
 						100% {
-							right: 120vw;
-							top: -45vh;
+							// right: ;
+							// top: ;
 						}
 					}
 	
-					@keyframes takeoff {
-						0% {
-							right: 45vw;
-							top: -17vh;
-						}
-	
-						35% {
-							top: -17vh;
-						}
-	
-						100% {
-							right: 120vw;
-							top: -45vh;
-						}
-					}
+					// @keyframes takeoff {
+					// }
 				}
 			}
 	
 			& section {
-				display: flex;
-				justify-content: space-evenly;
+				// display: ;
+				// justify-content: ;
 				position: relative;
 				top: -6vh;
 				width: 100%;
